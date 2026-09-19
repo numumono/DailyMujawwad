@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="ms" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,240 +8,115 @@
     <!-- Memuatkan Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Memuatkan Google Fonts: Inter (Teks Rumi) & Amiri (Teks Arab) -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <!-- Memuatkan Google Fonts -->
     <style>
-        :root {
-            --bg-corporate: #fdf6e3; 
-            --text-main: #333333;
-            --card-bg: #ffffff;
-            --border-light: #e5e7eb;
-            --primary: #1f2937; 
-            --primary-hover: #111827;
-            --correct-bg: #dcfce7;
-            --correct-border: #86efac;
-            --correct-text: #166534;
-            --wrong-bg: #fee2e2;
-            --wrong-border: #fca5a5;
-            --wrong-text: #991b1b;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-corporate);
-            color: var(--text-main);
-            font-size: 1.125rem;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .corporate-card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-light);
-            padding: 2.5rem;
-            width: 100%;
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        .arabic-text {
-            font-family: 'Amiri', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.6;
-            color: var(--text-main);
-            direction: rtl;
-        }
-
-        .highlight-arabic {
-            color: #b91c1c;
-        }
-
-        .btn-option {
-            background-color: #f8fafc;
-            color: var(--text-main);
-            border: 2px solid var(--border-light);
-            border-radius: 10px;
-            transition: all 0.2s ease;
-            font-weight: 600;
-            text-align: left;
-            padding: 1.25rem 1.5rem;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            font-size: 1.125rem;
-            cursor: pointer;
-        }
-        
-        .btn-option:hover:not(:disabled) {
-            background-color: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-
-        .btn-option:disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
-        .btn-correct {
-            background-color: var(--correct-bg) !important;
-            border-color: var(--correct-border) !important;
-            color: var(--correct-text) !important;
-            opacity: 1 !important;
-        }
-
-        .btn-wrong {
-            background-color: var(--wrong-bg) !important;
-            border-color: var(--wrong-border) !important;
-            color: var(--wrong-text) !important;
-            opacity: 1 !important;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border-radius: 10px;
-            padding: 1rem 2.5rem;
-            font-weight: 700;
-            font-size: 1.125rem;
-            transition: background-color 0.2s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-        }
-
-        .screen-container {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .screen-active {
-            display: block;
-            opacity: 1;
-        }
-
-        .link-corporate {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .link-corporate:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        .arabic-text { font-family: 'Amiri', serif; font-size: 3rem; line-height: 1.6; font-weight: 700; direction: rtl; }
+        .highlight-arabic { color: #e11d48; } /* Warna merah (rose-600) untuk penegasan font arab */
     </style>
 </head>
-<body>
+<body class="bg-[#F8F9FA] font-sans text-slate-700 min-h-screen flex flex-col items-center justify-center p-4">
 
-    <main class="flex-grow flex items-center justify-center py-10 px-4 w-full">
+    <!-- Kad Utama -->
+    <main class="max-w-2xl w-full bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
         
         <!-- SKRIN 1: Halaman Depan -->
-        <div id="start-screen" class="corporate-card screen-container screen-active text-center">
-            <h1 class="text-3xl sm:text-4xl font-extrabold mb-8 text-[#333333] leading-tight">Latihan Anatomi Pangkal Lidah</h1>
+        <div id="start-screen" class="text-center py-8">
+            <h1 class="text-2xl md:text-3xl font-semibold text-slate-800 mb-6 leading-tight">Latihan Anatomi Pangkal Lidah</h1>
             
-            <div class="mb-10 space-y-3">
-                <a href="https://instagram.com/dailymujawwad" target="_blank" rel="noopener noreferrer" class="link-corporate text-xl block" style= "word-break: break-all;">
+            <div class="mb-10 space-y-2 text-slate-600">
+                <p>Pembina Kuiz: <span class="font-medium">Munirah</span></p>
+                <a href="https://instagram.com/dailymujawwad" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium transition-colors">
                     instagram.com/dailymujawwad
                 </a>
-                <p class="text-lg font-medium text-gray-700">Pembina Kuiz: Munirah</p>
             </div>
             
-            <button onclick="startQuiz()" class="btn-primary">
+            <button onclick="startQuiz()" class="bg-slate-700 hover:bg-slate-800 text-white font-medium py-3 px-8 rounded-lg transition-colors shadow-sm text-lg">
                 Mula Kuiz
             </button>
         </div>
 
         <!-- SKRIN 2: Paparan Kuiz -->
-        <div id="quiz-screen" class="corporate-card screen-container">
-            <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-4">
-                <span id="question-type" class="bg-gray-100 text-gray-600 text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider"></span>
-                <span id="question-progress" class="font-bold text-gray-600">1 / 10</span>
+        <div id="quiz-screen" class="hidden">
+            <!-- Pengepala Kuiz -->
+            <div class="text-center border-b border-slate-100 pb-5 mb-6 flex justify-between items-center">
+                <span id="question-type" class="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-md border border-slate-200 tracking-wide uppercase">Asas</span>
+                <span id="question-progress" class="text-sm font-semibold text-slate-600 tracking-wide uppercase">1 / 10</span>
             </div>
 
-            <div class="mb-8 text-center bg-[#fdf6e3] rounded-xl p-6 border border-[#e5e7eb]">
-                <h2 id="question-text" class="text-xl sm:text-2xl font-bold mb-4 text-[#333333] leading-snug"></h2>
-                <div id="arabic-word-container" class="arabic-text mb-2"></div>
+            <!-- Ruang Soalan -->
+            <div class="mb-8 text-center bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <h2 id="question-text" class="text-lg md:text-xl font-medium mb-4 leading-relaxed text-slate-800"></h2>
+                <div id="arabic-word-container" class="arabic-text text-slate-800"></div>
             </div>
             
-            <div id="options-container" class="space-y-4 mb-8"></div>
+            <!-- Pilihan Jawapan -->
+            <div id="options-container" class="space-y-3 mb-6"></div>
 
-            <div id="feedback-panel" class="hidden rounded-xl p-5 mb-8 border-l-4 shadow-sm text-lg">
-                <h3 id="feedback-title" class="font-bold mb-2 text-xl"></h3>
-                <p id="feedback-message" class="leading-relaxed"></p>
+            <!-- Panel Maklum Balas -->
+            <div id="feedback-panel" class="hidden mt-6 p-4 rounded-lg border mb-6">
+                <h3 id="feedback-title" dir="ltr" class="font-semibold text-lg mb-1 text-left"></h3>
+                <p id="feedback-message" dir="ltr" class="text-sm leading-relaxed text-left"></p>
             </div>
 
-            <div class="flex justify-end">
-                <button id="next-btn" onclick="nextQuestion()" class="hidden btn-primary">
-                    Soalan Seterusnya
+            <!-- Butang Navigasi Seterusnya -->
+            <div class="flex justify-end border-t border-slate-100 pt-6">
+                <button id="next-btn" onclick="nextQuestion()" class="hidden bg-slate-700 hover:bg-slate-800 text-white font-medium py-2 px-5 rounded-lg transition-colors shadow-sm">
+                    Seterusnya
                 </button>
             </div>
         </div>
 
         <!-- SKRIN 3: Keputusan -->
-        <div id="result-screen" class="corporate-card screen-container text-center py-8">
-            <h2 class="text-3xl font-extrabold mb-8 text-[#333333]">Kuiz Tamat</h2>
+        <div id="result-screen" class="hidden text-center py-8">
+            <h2 class="text-2xl font-semibold text-slate-800 mb-6">Kuiz Tamat!</h2>
             
-            <div class="bg-[#fdf6e3] border-2 border-[#e5e7eb] rounded-full w-48 h-48 mx-auto flex flex-col items-center justify-center mb-8">
-                <span class="text-sm font-bold uppercase text-gray-500 mb-1">Skor Akhir</span>
-                <span id="final-score" class="text-6xl font-extrabold text-[#333333]">0/10</span>
+            <div class="bg-slate-50 border-2 border-slate-200 rounded-full w-40 h-40 mx-auto flex flex-col items-center justify-center mb-8">
+                <span class="text-xs font-semibold uppercase text-slate-500 mb-1">Skor Akhir</span>
+                <span id="final-score" class="text-5xl font-bold text-slate-800">0/10</span>
             </div>
             
-            <button onclick="restartQuiz()" class="btn-primary">
-                Cuba Lagi
+            <button onclick="restartQuiz()" class="bg-slate-700 hover:bg-slate-800 text-white font-medium py-2.5 px-6 rounded-lg transition-colors shadow-sm">
+                Cuba Lagi (Soalan Rawak)
             </button>
         </div>
-
     </main>
 
-    <footer class="w-full bg-white border-t border-[#e5e7eb] py-8 px-4 mt-auto">
-        <div class="max-w-4xl mx-auto flex flex-col items-center text-center space-y-5">
-            
-            <div class="text-base font-semibold text-[#333333] space-y-1">
-                <p>Kuiz Ini Dijana Oleh DailyMujawwad Menggunakan Gemini</p>
-                <p>Untuk Menghantar Sebarang Pertanyaan dan Memberi Sumbangan, Hubungi <strong>0128816594 (Munirah)</strong></p>
-            </div>
+    <!-- Bahagian Butang Ke Kuiz Seterusnya -->
+    <div class="max-w-2xl w-full text-center mt-8 mb-2 px-4">
+        <p class="text-sm font-medium text-slate-600 mb-3">Dah selesai? Jom cabar diri dengan kuiz seterusnya!</p>
+        <a href="aliranudara_hembusannafas.html" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-6 rounded-lg transition-colors shadow-sm w-full sm:w-auto">
+            Main Kuiz Seterusnya: Aliran Udara & Hembusan Nafas ➡️
+        </a>
+    </div>
 
-            <a href="https://wa.me/60128816594?text=Salam,%20saya%20ingin%20melaporkan%20isu%20pada%20Kuiz%20Tajwid..." 
-               target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center justify-center bg-[#fef2f2] text-[#991b1b] border border-[#fca5a5] hover:bg-[#fee2e2] font-bold py-2.5 px-6 rounded-lg transition-all shadow-sm">
-               🚨 Laporkan Isu Fakta / Teknikal
-            </a>
-            
-        </div>
+    <!-- Footer -->
+    <footer class="max-w-2xl w-full text-center text-[11px] text-slate-500 mt-6 space-y-1.5 px-4 leading-relaxed tracking-wide mb-8">
+        <p>Kuiz Ini Dijana Oleh DailyMujawwad Menggunakan Gemini</p>
+        <p>Untuk Menghantar Sebarang Pertanyaan dan Memberi Sumbangan, Hubungi <a href="https://wa.me/60128816594" class="font-semibold text-slate-600 hover:text-slate-800 transition-colors">0128816594 (Munirah)</a></p>
+        <p>🚨 Laporkan Isu Fakta / Teknikal (kepada nombor whatsapp yang sama)</p>
     </footer>
 
     <script>
-        // BANK SOALAN ASAS (35 Soalan)
+        // BANK SOALAN ASAS
         const bankAsas = [
             { q: "Apabila menyebut [خَ], pangkal lidah...", word: "خَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[خَ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [خِ], pangkal lidah...", word: "خِ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[خِ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [خُ], pangkal lidah...", word: "خُ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[خُ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [خۡ], pangkal lidah...", word: "خۡ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[خۡ] tebal, pangkal lidah naik." },
-            { q: "Apabila menyebut [خَّ], pangkal lidah...", word: "خَّ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[خَّ] tebal, pangkal lidah naik." },
+            { q: "Apabila menyebut [خَّ], pangkal lidah...", word: "خَّ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[خَّ] tebal, pangkal lidah naik." },
             
             { q: "Apabila menyebut [صَ], pangkal lidah...", word: "صَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[صَ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [صِ], pangkal lidah...", word: "صِ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[صِ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [صُ], pangkal lidah...", word: "صُ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[صُ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [صۡ], pangkal lidah...", word: "صۡ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[صۡ] tebal, pangkal lidah naik." },
-            { q: "Apabila menyebut [صَّ], pangkal lidah...", word: "صَّ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[صَّ] tebal, pangkal lidah naik." },
+            { q: "Apabila menyebut [صَّ], pangkal lidah...", word: "صَّ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[صَّ] tebal, pangkal lidah naik." },
             
             { q: "Apabila menyebut [ضَ], pangkal lidah...", word: "ضَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[ضَ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [ضِ], pangkal lidah...", word: "ضِ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[ضِ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [ضُ], pangkal lidah...", word: "ضُ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[ضُ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [ضۡ], pangkal lidah...", word: "ضۡ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[ضۡ] tebal, pangkal lidah naik." },
-            { q: "Apabila menyebut [ضَّ], pangkal lidah...", word: "ضَّ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[ضَّ] tebal, pangkal lidah naik." },
+            { q: "Apabila menyebut [ضَّ], pangkal lidah...", word: "ضَّ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[ضَّ] tebal, pangkal lidah naik." },
             
             { q: "Apabila menyebut [غَ], pangkal lidah...", word: "غَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[غَ] tebal, pangkal lidah naik." },
             { q: "Apabila menyebut [غِ], pangkal lidah...", word: "غِ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "[غِ] tebal, pangkal lidah naik." },
@@ -270,11 +145,11 @@
             { q: "Apabila menyebut [دۡ], pangkal lidah...", word: "دۡ", opts: ["Turun mendatar", "Naik"], ans: 0, exp: "[دۡ] nipis, pangkal lidah turun." }
         ];
 
-        // BANK SOALAN LANJUTAN (15 Soalan - Kalimah Rasm Uthmani)
+        // BANK SOALAN LANJUTAN
         const bankLanjutan = [
             { q: "Semasa menyebut [خَـٰلِدِينَ], apakah keadaan pangkal lidah pada [خَ]?", word: "<span class='highlight-arabic'>خَـٰ</span>لِدِينَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [خَـٰلِدِينَ], [خَ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [ٱلۡمُسۡتَقِيمَ], apakah keadaan pangkal lidah pada [قِ]?", word: "ٱلۡمُسۡتَ<span class='highlight-arabic'>قِ</span>يمَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [ٱلۡمُسۡتَقِيمَ], [قِ] tebal, pangkal lidah mesti naik." },
-            { q: "Semasa menyebut [ٱلضَّآلِّينَ], apakah keadaan pangkal lidah pada [ضَّ]?", word: "ٱل<span class='highlight-arabic'>ضَّ</span>آلِّينَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [ٱلضَّآلِّينَ], [ضَّ] tebal, pangkal lidah mesti naik." },
+            { q: "Semasa menyebut [ٱلضَّآلِّينَ], apakah keadaan pangkal lidah pada [ضَّ]?", word: "ٱل<span class='highlight-arabic'>ضَّ</span>آلِّينَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [ٱلضَّآلِّينَ], [ضَّ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [يَخۡطَفُ], apakah keadaan pangkal lidah pada [خۡ]?", word: "يَ<span class='highlight-arabic'>خۡ</span>طَفُ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [يَخۡطَفُ], [خۡ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [غِشَـٰوَةٌۭ], apakah keadaan pangkal lidah pada [غِ]?", word: "<span class='highlight-arabic'>غِ</span>شَـٰوَةٌۭ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [غِشَـٰوَةٌۭ], [غِ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [ظَلَمُوا۟], apakah keadaan pangkal lidah pada [ظَ]?", word: "<span class='highlight-arabic'>ظَ</span>لَمُوا۟", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [ظَلَمُوا۟], [ظَ] tebal, pangkal lidah mesti naik." },
@@ -283,7 +158,7 @@
             { q: "Semasa menyebut [فَطَالَ], apakah keadaan pangkal lidah pada [طَ]?", word: "فَ<span class='highlight-arabic'>طَ</span>الَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [فَطَالَ], [طَ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [ٱلۡقَارِعَةُ], apakah keadaan pangkal lidah pada [قَ]?", word: "ٱلۡ<span class='highlight-arabic'>قَ</span>ارِعَةُ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [ٱلۡقَارِعَةُ], [قَ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [مَغۡضُوبِ], apakah keadaan pangkal lidah pada [غۡ]?", word: "مَ<span class='highlight-arabic'>غۡ</span>ضُوبِ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [مَغۡضُوبِ], [غۡ] tebal, pangkal lidah mesti naik." },
-            { q: "Semasa menyebut [ٱلصَّمَدُ], apakah keadaan pangkal lidah pada [صَّ]?", word: "ٱل<span class='highlight-arabic'>صَّ</span>مَدُ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [ٱلصَّمَدُ], [صَّ] tebal, pangkal lidah mesti naik." },
+            { q: "Semasa menyebut [ٱلصَّمَدُ], apakah keadaan pangkal lidah pada [صَّ]?", word: "ٱل<span class='highlight-arabic'>صَّ</span>مَدُ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [ٱلصَّمَدُ], [صَّ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [تُبۡصِرُونَ], apakah keadaan pangkal lidah pada [صِ]?", word: "تُبۡ<span class='highlight-arabic'>صِ</span>رُونَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [تُبۡصِرُونَ], [صِ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [يُظۡهِرَ], apakah keadaan pangkal lidah pada [ظۡ]?", word: "يُ<span class='highlight-arabic'>ظۡ</span>هِرَ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [يُظۡهِرَ], [ظۡ] tebal, pangkal lidah mesti naik." },
             { q: "Semasa menyebut [مَرَضٌۭ], apakah keadaan pangkal lidah pada [ضٌ]?", word: "مَرَ<span class='highlight-arabic'>ضٌ</span>ۭ", opts: ["Naik", "Turun mendatar"], ans: 0, exp: "Dalam kalimah [مَرَضٌۭ], [ضٌ] tebal, pangkal lidah mesti naik." }
@@ -293,7 +168,6 @@
         let indeksSoalan = 0;
         let markah = 0;
 
-        // Fungsi rombak rawak (Fisher-Yates)
         function rombakArray(array) {
             let arr = [...array];
             for (let i = arr.length - 1; i > 0; i--) {
@@ -303,21 +177,17 @@
             return arr;
         }
 
-        // Fungsi tukar paparan
         function tunjukSkrin(id) {
-            document.querySelectorAll('.screen-container').forEach(el => {
-                el.classList.remove('screen-active');
-            });
-            document.getElementById(id).classList.add('screen-active');
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById(id).classList.remove('hidden');
         }
 
-        // Mula Kuiz
         function startQuiz() {
-            // Pilih 5 asas, 5 lanjutan
             let pilihanAsas = rombakArray(bankAsas).slice(0, 5).map(q => ({...q, jenis: 'Asas'}));
             let pilihanLanjutan = rombakArray(bankLanjutan).slice(0, 5).map(q => ({...q, jenis: 'Lanjutan'}));
             
-            // Gabung dan rombak
             soalanSesi = rombakArray([...pilihanAsas, ...pilihanLanjutan]);
             
             indeksSoalan = 0;
@@ -331,15 +201,14 @@
             document.getElementById('next-btn').classList.add('hidden');
             
             const dataSoalan = soalanSesi[indeksSoalan];
-            
             document.getElementById('question-progress').innerText = `${indeksSoalan + 1} / 10`;
             
             const badgeJenis = document.getElementById('question-type');
             badgeJenis.innerText = dataSoalan.jenis;
             if (dataSoalan.jenis === 'Lanjutan') {
-                badgeJenis.className = "bg-blue-100 text-blue-800 text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider";
+                badgeJenis.className = "text-xs font-semibold bg-sky-100 text-sky-700 px-3 py-1.5 rounded-md border border-sky-200 tracking-wide uppercase";
             } else {
-                badgeJenis.className = "bg-gray-100 text-gray-700 text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider";
+                badgeJenis.className = "text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-md border border-slate-200 tracking-wide uppercase";
             }
 
             document.getElementById('question-text').innerHTML = dataSoalan.q;
@@ -353,9 +222,11 @@
 
             pilihanDenganIndeks.forEach((pilihan) => {
                 const butang = document.createElement('button');
-                butang.className = "btn-option";
+                butang.setAttribute('dir', 'ltr');
+                butang.className = "w-full text-left px-5 py-4 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 text-slate-700 transition-colors duration-150 font-medium flex items-center";
+                
                 butang.innerHTML = `
-                    <span class="w-6 h-6 border-2 border-gray-400 rounded-full mr-4 flex-shrink-0 flex items-center justify-center"></span> 
+                    <span class="w-5 h-5 border-2 border-slate-300 rounded-full mr-4 flex-shrink-0"></span> 
                     <span>${pilihan.teks}</span>
                 `;
                 butang.onclick = () => semakJawapan(pilihan.idxAsal, dataSoalan.ans, dataSoalan.exp, butang, bekasPilihan);
@@ -367,44 +238,64 @@
             const semuaButang = bekas.getElementsByTagName('button');
             for (let btn of semuaButang) {
                 btn.disabled = true;
+                btn.classList.add('cursor-not-allowed');
+                btn.classList.remove('hover:bg-slate-50', 'hover:border-slate-300');
             }
 
             const panelMaklumBalas = document.getElementById('feedback-panel');
             const tajukMaklumBalas = document.getElementById('feedback-title');
             const mesejMaklumBalas = document.getElementById('feedback-message');
 
-            panelMaklumBalas.classList.remove('hidden', 'bg-[#dcfce7]', 'border-[#86efac]', 'text-[#166534]', 'bg-[#fee2e2]', 'border-[#fca5a5]', 'text-[#991b1b]');
+            panelMaklumBalas.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-200', 'text-emerald-800', 'bg-rose-50', 'border-rose-200', 'text-rose-800');
 
-            const bulatan = butangKlik.querySelector('span');
+            const bulatanKlik = butangKlik.querySelector('span');
 
             if (idxDipilih === idxTepat) {
                 markah++;
-                butangKlik.classList.add('btn-correct');
-                bulatan.classList.add('bg-[#166534]', 'border-[#166534]');
+                butangKlik.classList.replace('bg-white', 'bg-emerald-50');
+                butangKlik.classList.replace('border-slate-200', 'border-emerald-300');
+                butangKlik.classList.replace('text-slate-700', 'text-emerald-800');
+                bulatanKlik.classList.replace('border-slate-300', 'border-emerald-600');
+                bulatanKlik.classList.add('bg-emerald-600');
                 
-                panelMaklumBalas.classList.add('bg-[#dcfce7]', 'border-[#86efac]', 'text-[#166534]');
-                tajukMaklumBalas.innerText = "✓ Tepat";
+                panelMaklumBalas.classList.add('bg-emerald-50', 'border-emerald-200', 'text-emerald-800');
+                tajukMaklumBalas.innerText = "✓ Jawapan Tepat";
             } else {
-                butangKlik.classList.add('btn-wrong');
-                bulatan.classList.add('bg-[#991b1b]', 'border-[#991b1b]');
+                butangKlik.classList.replace('bg-white', 'bg-rose-50');
+                butangKlik.classList.replace('border-slate-200', 'border-rose-300');
+                butangKlik.classList.replace('text-slate-700', 'text-rose-800');
+                bulatanKlik.classList.replace('border-slate-300', 'border-rose-600');
+                bulatanKlik.classList.add('bg-rose-600');
 
-                panelMaklumBalas.classList.add('bg-[#fee2e2]', 'border-[#fca5a5]', 'text-[#991b1b]');
-                tajukMaklumBalas.innerText = "✗ Kurang Tepat";
+                panelMaklumBalas.classList.add('bg-rose-50', 'border-rose-200', 'text-rose-800');
+                tajukMaklumBalas.innerText = "✗ Jawapan Kurang Tepat";
                 
-                // Cari dan tandakan jawapan yang betul
                 for (let btn of semuaButang) {
                     const teksSpan = btn.querySelectorAll('span')[1].innerText.trim();
                     const teksBetul = soalanSesi[indeksSoalan].opts[idxTepat];
                     if (teksSpan === teksBetul) {
-                        btn.style.opacity = '1';
-                        btn.style.border = '2px dashed #166534';
-                        btn.querySelector('span').classList.add('border-[#166534]');
+                        btn.classList.replace('border-slate-200', 'border-emerald-400');
+                        btn.classList.add('border-dashed', 'bg-emerald-50/50');
+                    } else if (btn !== butangKlik) {
+                        btn.classList.add('opacity-60', 'text-slate-400');
                     }
                 }
             }
 
             mesejMaklumBalas.innerHTML = `<strong>Keterangan:</strong> ${penerangan}`;
-            document.getElementById('next-btn').classList.remove('hidden');
+            
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.classList.remove('hidden');
+            
+            if (indeksSoalan === 9) {
+                nextBtn.innerText = 'Lihat Keputusan';
+                nextBtn.classList.replace('bg-slate-700', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-slate-800', 'hover:bg-emerald-700');
+            } else {
+                nextBtn.innerText = 'Seterusnya';
+                nextBtn.classList.replace('bg-emerald-600', 'bg-slate-700');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-slate-800');
+            }
         }
 
         function nextQuestion() {
@@ -425,12 +316,5 @@
             startQuiz();
         }
     </script>
-<!-- Bahagian Butang Ke Kuiz Seterusnya -->
-<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
-    <p style="font-family: sans-serif; font-size: 16px; color: #333;">Dah selesai? Jom cabar diri dengan kuiz seterusnya!</p>
-    <a href="aliranudara_hembusannafas.html" style="display: inline-block; padding: 12px 24px; background-color: #007bff; color: white; text-decoration: none; font-family: sans-serif; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        Main Kuiz Seterusnya: Aliran Udara & Hembusan Nafas ➡️
-    </a>
-</div>
 </body>
 </html>
