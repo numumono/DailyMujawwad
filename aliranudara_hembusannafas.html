@@ -54,11 +54,25 @@
         </div>
     </div>
 
+    <!-- Bahagian Butang Kembali Ke Kuiz Pertama -->
+    <div class="max-w-2xl w-full text-center mt-8 mb-2 px-4">
+        <p class="text-sm font-medium text-slate-600 mb-3">Mahu ulang kaji tajuk sebelum ini?</p>
+        <a href="index.html" class="inline-flex items-center justify-center bg-slate-500 hover:bg-slate-600 text-white font-semibold py-2.5 px-6 rounded-lg transition-colors shadow-sm w-full sm:w-auto">
+            ⬅️ Kembali ke Kuiz: Pangkal Lidah Ketika Menyebut
+        </a>
+    </div>
+
     <!-- Footer -->
-    <footer class="max-w-2xl w-full text-center text-[11px] text-slate-500 mt-6 space-y-1.5 px-4 leading-relaxed tracking-wide">
+    <footer class="max-w-2xl w-full text-center text-xs text-slate-500 mt-6 space-y-3 px-4 leading-relaxed tracking-wide mb-8">
         <p>Kuiz Ini Dijana Oleh DailyMujawwad Menggunakan Gemini</p>
         <p>Untuk Menghantar Sebarang Pertanyaan dan Memberi Sumbangan, Hubungi <a href="https://wa.me/60128816594" class="font-semibold text-slate-600 hover:text-slate-800 transition-colors">0128816594 (Munirah)</a></p>
-        <p>🚨 Laporkan Isu Fakta / Teknikal (kepada nombor whatsapp yang sama)</p>
+        
+        <!-- Butang Whatsapp Lapor Isu -->
+        <a href="https://wa.me/60128816594?text=Salam,%20saya%20ingin%20melaporkan%20isu%20pada%20Kuiz%20Sifat%20Huruf..." 
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center mt-2 bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 font-semibold py-2 px-5 rounded-lg transition-colors shadow-sm">
+            🚨 Laporkan Isu Fakta / Teknikal
+        </a>
     </footer>
 
     <script>
@@ -139,7 +153,6 @@
             return shuffled;
         }
         
-        // Fungsi baru untuk memformat ayat bercampur rumi & arab supaya sentiasa bermula dari kiri
         function formatArabic(text) {
             const arabicRegex = /([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF][\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF\s]*[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]|[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF])/g;
             return '&lrm;' + text.replace(arabicRegex, '<bdi dir="rtl" class="arabic-text px-1">$1</bdi>');
@@ -175,7 +188,6 @@
             const currentQ = selectedQuestions[currentQuestionIndex];
             document.getElementById('question-tracker').innerText = `Soalan ${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
             
-            // Format soalan menggunakan fungsi formatArabic
             document.getElementById('question-text').innerHTML = formatArabic(currentQ.q);
             
             const optionsContainer = document.getElementById('options-container');
@@ -283,12 +295,5 @@
 
         window.onload = initQuiz;
     </script>
-<!-- Bahagian Butang Kembali Ke Kuiz Pertama -->
-<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
-    <p style="font-family: sans-serif; font-size: 16px; color: #333;">Mahu ulang kaji tajuk sebelum ini?</p>
-    <a href="index.html" style="display: inline-block; padding: 12px 24px; background-color: #6c757d; color: white; text-decoration: none; font-family: sans-serif; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        ⬅️ Kembali ke Kuiz: Pangkal Lidah Ketika Menyebut
-    </a>
-</div>
 </body>
 </html>
