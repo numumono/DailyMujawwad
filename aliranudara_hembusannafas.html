@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kuiz Interaktif Sifat Huruf (Tajwid)</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+        .arabic-text { font-family: 'Amiri', serif; font-size: 1.25em; line-height: 1.6; }
+    </style>
 </head>
-<body class="bg-slate-50 font-sans text-gray-800 min-h-screen flex items-center justify-center p-4">
+<body class="bg-[#F8F9FA] font-sans text-slate-700 min-h-screen flex flex-col items-center justify-center p-4">
 
-    <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-6 md:p-8">
+    <!-- Kad Kuiz Utama -->
+    <div class="max-w-2xl w-full bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
         
         <!-- Pengepala -->
-        <div class="text-center border-b pb-4 mb-6">
-            <h1 class="text-2xl font-bold text-indigo-700">Kuiz Sifat Huruf (Hams, Jahr, Shiddah, Tawassut, Rakhawah)</h1>
-            <p class="text-sm text-gray-500 mt-2">Jawab 10 soalan rawak. Maklum balas akan diberikan serta-merta.</p>
+        <div class="text-center border-b border-slate-100 pb-5 mb-6">
+            <h1 class="text-2xl font-semibold text-slate-800">Kuiz Sifat Huruf</h1>
+            <p class="text-sm text-slate-500 mt-2">Jawab 10 soalan rawak. Maklum balas akan diberikan serta-merta.</p>
         </div>
 
         <!-- Ruang Kuiz -->
         <div id="quiz-container">
-            <div class="flex justify-between items-center mb-4">
-                <span id="question-tracker" class="text-sm font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Soalan 1 / 10</span>
-                <span id="score-tracker" class="text-sm font-semibold text-green-600">Markah: 0</span>
+            <div class="mb-6">
+                <span id="question-tracker" class="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200 tracking-wide uppercase">Soalan 1 / 10</span>
             </div>
             
-            <h2 id="question-text" class="text-lg md:text-xl font-medium mb-6 leading-relaxed">Pemuatan soalan...</h2>
+            <h2 id="question-text" dir="ltr" class="text-lg md:text-xl font-medium mb-6 leading-relaxed text-slate-800 text-left">Pemuatan soalan...</h2>
             
             <div id="options-container" class="space-y-3">
                 <!-- Pilihan jawapan akan dijanakan di sini -->
@@ -31,94 +35,100 @@
 
             <!-- Maklum Balas Jawapan -->
             <div id="feedback-container" class="mt-6 hidden p-4 rounded-lg border">
-                <p id="feedback-status" class="font-bold text-lg mb-1"></p>
-                <p id="feedback-reason" class="text-sm"></p>
+                <p id="feedback-status" dir="ltr" class="font-semibold text-lg mb-1 text-left"></p>
+                <p id="feedback-reason" dir="ltr" class="text-sm leading-relaxed text-left"></p>
             </div>
         </div>
 
         <!-- Keputusan Akhir -->
-        <div id="result-container" class="hidden text-center">
-            <h2 class="text-3xl font-bold mb-2">Kuiz Tamat!</h2>
-            <p class="text-lg text-gray-700 mb-6">Markah anda: <span id="final-score" class="font-bold text-indigo-600 text-2xl"></span></p>
-            <button onclick="initQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition">Cuba Lagi (Soalan Rawak)</button>
+        <div id="result-container" class="hidden text-center py-8">
+            <h2 class="text-2xl font-semibold text-slate-800 mb-2">Kuiz Tamat!</h2>
+            <p class="text-lg text-slate-600 mb-8">Tahniah kerana telah melengkapkan latihan ini!</p>
+            <button onclick="initQuiz()" class="bg-slate-700 hover:bg-slate-800 text-white font-medium py-2.5 px-6 rounded-lg transition-colors shadow-sm">Cuba Lagi (Soalan Rawak)</button>
         </div>
 
         <!-- Butang Navigasi -->
         <div id="nav-buttons" class="flex justify-between mt-8 hidden">
-            <button id="prev-btn" onclick="prevQuestion()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-lg transition disabled:opacity-50">Sebelumnya</button>
-            <button id="next-btn" onclick="nextQuestion()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition disabled:opacity-50">Seterusnya</button>
+            <button id="prev-btn" onclick="prevQuestion()" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-600 font-medium py-2 px-5 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed">Sebelumnya</button>
+            <button id="next-btn" onclick="nextQuestion()" class="bg-slate-700 hover:bg-slate-800 text-white font-medium py-2 px-5 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-sm">Seterusnya</button>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="max-w-2xl w-full text-center text-[11px] text-slate-500 mt-6 space-y-1.5 px-4 leading-relaxed tracking-wide">
+        <p>Kuiz Ini Dijana Oleh DailyMujawwad Menggunakan Gemini</p>
+        <p>Untuk Menghantar Sebarang Pertanyaan dan Memberi Sumbangan, Hubungi <a href="https://wa.me/60128816594" class="font-semibold text-slate-600 hover:text-slate-800 transition-colors">0128816594 (Munirah)</a></p>
+        <p>🚨 Laporkan Isu Fakta / Teknikal (kepada nombor whatsapp yang sama)</p>
+    </footer>
+
     <script>
-        // Bank Soalan (Ditunjukkan sebahagian dari 50 soalan untuk contoh. Anda boleh tambah mengikut format ini)
+        // Bank Soalan 
         const questionBank = [
             {
-                q: "Apakah sifat bagi huruf 'ت' (Ta)?",
-                options: ["Hams dan Shiddah", "Jahr dan Rakhawah", "Hams dan Tawassut", "Jahr dan Shiddah"],
+                q: "Apakah sifat bagi huruf 'ت'?",
+                options: ["الهَمْس dan الشِّدَّة", "الجَهْر dan الرَّخَاوَة", "الهَمْس dan التَّوَسُّط", "الجَهْر dan الشِّدَّة"],
                 answer: 0,
-                reason: "Huruf 'ت' tergolong dalam Hams (فَحَثَّهُ شَخْصٌ سَكَتَ) yang melepaskan nafas, dan Shiddah (أَجِدْ قَطٍ بَكَتْ) yang menahan suara."
+                reason: "Huruf 'ت' tergolong dalam الهَمْس (فَحَثَّهُ شَخْصٌ سَكَتَ) yang melepaskan nafas, dan الشِّدَّة (أَجِدْ قَطٍ بَكَتْ) yang menahan suara."
             },
             {
-                q: "Huruf yang mempunyai sifat 'Tawassut' (pertengahan antara suara tertahan dan mengalir) terhimpun dalam rangkai kata:",
+                q: "Huruf yang mempunyai sifat التَّوَسُّط terhimpun dalam rangkai kata:",
                 options: ["أَجِدْ قَطٍ بَكَتْ", "لِنْ عُمَرْ", "فَحَثَّهُ شَخْصٌ سَكَتَ", "خُصَّ ضَغْطٍ قِظْ"],
                 answer: 1,
-                reason: "Rangkai kata 'لِنْ عُمَرْ' (Lam, Nun, 'Ain, Mim, Ra) mewakili sifat Tawassut di mana suara tidak tertahan sepenuhnya dan tidak mengalir sepenuhnya."
+                reason: "Rangkai kata 'لِنْ عُمَرْ' (ل, ن, ع, م, ر) mewakili sifat التَّوَسُّط di mana suara tidak tertahan sepenuhnya dan tidak mengalir sepenuhnya."
             },
             {
                 q: "Sekatan pada laluan udara (nafas) yang menghasilkan kekuatan sebutan huruf dikenali sebagai sifat...",
-                options: ["Al-Hams", "Ar-Rakhawah", "Al-Jahr", "At-Tawassut"],
+                options: ["الهَمْس", "الرَّخَاوَة", "الجَهْر", "التَّوَسُّط"],
                 answer: 2,
-                reason: "Al-Jahr (الجَهْر) bermaksud nafas tertahan atau tersekat ketika huruf disebut, menjadikan sebutannya jelas."
+                reason: "الجَهْر bermaksud nafas tertahan atau tersekat ketika huruf disebut, menjadikan sebutannya jelas."
             },
             {
-                q: "Perhatikan lafaz (ٱلْحَمْدُ). Apakah sifat utama huruf 'ح' ketika ia berbaris atas?",
-                options: ["Hams dan Rakhawah", "Jahr dan Shiddah", "Hams dan Tawassut", "Jahr dan Rakhawah"],
+                q: "Perhatikan lafaz (ٱلۡحَمۡدُ). Apakah sifat utama huruf 'ح' ketika ia berbaris الفَتْحَة?",
+                options: ["الهَمْس dan الرَّخَاوَة", "الجَهْر dan الشِّدَّة", "الهَمْس dan التَّوَسُّط", "الجَهْر dan الرَّخَاوَة"],
                 answer: 0,
-                reason: "Huruf 'ح' melepaskan nafas (Hams: فَحَثَّهُ شَخْصٌ سَكَتَ) dan suaranya mengalir lembut (Rakhawah kerana ia tiada dalam huruf Shiddah/Tawassut)."
+                reason: "Huruf 'ح' melepaskan nafas (الهَمْس: فَحَثَّهُ شَخْصٌ سَكَتَ) dan suaranya mengalir lembut (الرَّخَاوَة kerana ia tiada dalam huruf الشِّدَّة atau التَّوَسُّط)."
             },
             {
-                q: "Di dalam ayat (إِيَّاكَ نَعْبُدُ), huruf 'ك' (Kaf) memiliki sifat Shiddah dan...",
-                options: ["Tawassut", "Jahr", "Hams", "Rakhawah"],
+                q: "Di dalam ayat (إِيَّاكَ نَعۡبُدُ), huruf 'ك' memiliki sifat الشِّدَّة dan...",
+                options: ["التَّوَسُّط", "الجَهْر", "الهَمْس", "الرَّخَاوَة"],
                 answer: 2,
-                reason: "Huruf Kaf (ك) memiliki sifat Shiddah (suara tertahan/kuat) pada pangkalnya, tetapi disudahi dengan Hams (hembusan nafas kecil)."
+                reason: "Huruf 'ك' memiliki sifat الشِّدَّة (suara tertahan/kuat) pada pangkalnya, tetapi disudahi dengan الهَمْس (hembusan nafas kecil)."
             },
             {
-                q: "Antara berikut, yang manakah BUKAN huruf yang bersifat 'Shiddah' (الشِّدَّة)?",
-                options: ["ج (Jim)", "ط (Ta')", "س (Sin)", "ق (Qaf)"],
+                q: "Antara berikut, yang manakah BUKAN huruf yang bersifat الشِّدَّة?",
+                options: ["ج", "ط", "س", "ق"],
                 answer: 2,
-                reason: "Huruf Sin (س) bersifat Rakhawah (suara mengalir), manakala Jim, Ta' dan Qaf berada dalam kumpulan (أَجِدْ قَطٍ بَكَتْ)."
+                reason: "Huruf 'س' bersifat الرَّخَاوَة (suara mengalir), manakala ج, ط dan ق berada dalam kumpulan (أَجِدْ قَطٍ بَكَتْ)."
             },
             {
-                q: "Dalam kalimah (بِسْمِ ٱللَّهِ), huruf 'س' yang mati (sukun) perlu disempurnakan sifat...",
-                options: ["Hams dan Rakhawah", "Jahr dan Shiddah", "Tawassut dan Jahr", "Shiddah dan Hams"],
+                q: "Dalam kalimah (بِسۡمِ ٱللَّهِ), huruf 'س' yang berbaris سُكُون perlu disempurnakan sifat...",
+                options: ["الهَمْس dan الرَّخَاوَة", "الجَهْر dan الشِّدَّة", "التَّوَسُّط dan الجَهْر", "الشِّدَّة dan الهَمْس"],
                 answer: 0,
-                reason: "Sin yang sukun perlu dialirkan nafas (Hams) dan dilembutkan aliran suaranya (Rakhawah) agar ia kedengaran jelas bunyinya."
+                reason: "Huruf 'س' yang bersimbol سُكُون perlu dialirkan nafas (الهَمْس) dan dilembutkan aliran suaranya (الرَّخَاوَة) agar ia kedengaran jelas bunyinya."
             },
             {
-                q: "Apakah perbezaan utama antara sifat Hams dan Jahr?",
+                q: "Apakah perbezaan utama antara sifat الهَمْس dan الجَهْر?",
                 options: ["Aliran Suara (Bunyi)", "Aliran Udara (Nafas)", "Ketebalan Lidah", "Kedudukan Bibir"],
                 answer: 1,
-                reason: "Hams mengalirkan nafas, manakala Jahr menahan nafas. (Manakala Shiddah dan Rakhawah adalah berkaitan aliran suara/bunyi)."
+                reason: "الهَمْس mengalirkan nafas, manakala الجَهْر menahan nafas. (Manakala الشِّدَّة dan الرَّخَاوَة adalah berkaitan aliran suara/bunyi)."
             },
             {
-                q: "Huruf 'م' (Mim) dan 'ن' (Nun) dikategorikan dalam sifat...",
-                options: ["Shiddah", "Rakhawah", "Tawassut", "Hams"],
+                q: "Huruf 'م' dan 'ن' dikategorikan dalam sifat...",
+                options: ["الشِّدَّة", "الرَّخَاوَة", "التَّوَسُّط", "الهَمْس"],
                 answer: 2,
-                reason: "Mim dan Nun tergolong dalam huruf Tawassut (لِنْ عُمَرْ). Suara tidak disekat habis seperti Shiddah, dan tidak dilepas terus seperti Rakhawah."
+                reason: "Huruf 'م' dan 'ن' tergolong dalam huruf التَّوَسُّط (لِنْ عُمَرْ). Suara tidak disekat habis seperti الشِّدَّة, dan tidak dilepas terus seperti الرَّخَاوَة."
             },
             {
                 q: "Huruf-huruf (ف ح ث ه ش خ ص س ك ت) adalah kumpulan huruf bagi sifat...",
-                options: ["Al-Hams", "Al-Jahr", "Ash-Shiddah", "At-Tawassut"],
+                options: ["الهَمْس", "الجَهْر", "الشِّدَّة", "التَّوَسُّط"],
                 answer: 0,
-                reason: "Ia adalah himpunan huruf Hams (nafas terlepas) melalui rangkai kata فَحَثَّهُ شَخْصٌ سَكَتَ."
+                reason: "Ia adalah himpunan huruf الهَمْس (nafas terlepas) melalui rangkai kata فَحَثَّهُ شَخْصٌ سَكَتَ."
             }
         ];
 
         let selectedQuestions = [];
         let currentQuestionIndex = 0;
-        let score = 0;
-        let userAnswers = []; // Menyimpan rekod jawapan pengguna
+        let userAnswers = []; 
 
         function shuffleArray(array) {
             let shuffled = [...array];
@@ -128,13 +138,17 @@
             }
             return shuffled;
         }
+        
+        // Fungsi baru untuk memformat ayat bercampur rumi & arab supaya sentiasa bermula dari kiri
+        function formatArabic(text) {
+            const arabicRegex = /([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF][\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF\s]*[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]|[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF])/g;
+            return '&lrm;' + text.replace(arabicRegex, '<bdi dir="rtl" class="arabic-text px-1">$1</bdi>');
+        }
 
         function initQuiz() {
-            // Pilih 10 soalan rawak (atau sebanyak mana dalam bank jika kurang dari 10)
             const numQuestions = Math.min(10, questionBank.length);
             const shuffledBank = shuffleArray(questionBank);
             selectedQuestions = shuffledBank.slice(0, numQuestions).map(q => {
-                // Rombak pilihan jawapan
                 const optionsWithIndex = q.options.map((opt, index) => ({ text: opt, isCorrect: index === q.answer }));
                 const shuffledOptions = shuffleArray(optionsWithIndex);
                 const correctIndex = shuffledOptions.findIndex(o => o.isCorrect);
@@ -148,7 +162,6 @@
             });
 
             currentQuestionIndex = 0;
-            score = 0;
             userAnswers = new Array(numQuestions).fill(null);
             
             document.getElementById('result-container').classList.add('hidden');
@@ -161,8 +174,9 @@
         function loadQuestion() {
             const currentQ = selectedQuestions[currentQuestionIndex];
             document.getElementById('question-tracker').innerText = `Soalan ${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
-            document.getElementById('score-tracker').innerText = `Markah: ${score}`;
-            document.getElementById('question-text').innerText = currentQ.q;
+            
+            // Format soalan menggunakan fungsi formatArabic
+            document.getElementById('question-text').innerHTML = formatArabic(currentQ.q);
             
             const optionsContainer = document.getElementById('options-container');
             optionsContainer.innerHTML = '';
@@ -174,46 +188,46 @@
 
             currentQ.options.forEach((opt, index) => {
                 const btn = document.createElement('button');
-                btn.className = `w-full text-left p-4 rounded-lg border-2 transition-all duration-200 font-medium ${hasAnswered ? 'cursor-not-allowed' : 'hover:bg-indigo-50 hover:border-indigo-300'}`;
-                btn.innerText = opt;
+                btn.setAttribute('dir', 'ltr');
+                btn.className = `w-full text-left px-5 py-4 rounded-lg border transition-colors duration-150 font-medium flex items-center ${hasAnswered ? 'cursor-not-allowed' : 'hover:bg-slate-50 hover:border-slate-300'}`;
+                
+                btn.innerHTML = formatArabic(opt);
                 btn.disabled = hasAnswered;
                 
                 if (hasAnswered) {
-                    // Beri gaya visual pada jawapan terdahulu
                     const isCorrectOption = index === currentQ.answer;
                     const isUserPick = index === userAnswers[currentQuestionIndex];
                     
                     if (isCorrectOption) {
-                        btn.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                        btn.classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-800');
                     } else if (isUserPick && !isCorrectOption) {
-                        btn.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+                        btn.classList.add('bg-rose-50', 'border-rose-300', 'text-rose-800');
                     } else {
-                        btn.classList.add('bg-gray-50', 'border-gray-200', 'text-gray-400');
+                        btn.classList.add('bg-white', 'border-slate-200', 'text-slate-400', 'opacity-60');
                     }
                 } else {
-                    btn.classList.add('bg-white', 'border-gray-200');
+                    btn.classList.add('bg-white', 'border-slate-200', 'text-slate-700');
                     btn.onclick = () => selectAnswer(index);
                 }
                 
                 optionsContainer.appendChild(btn);
             });
 
-            // Tunjuk maklum balas jika sudah dijawab
             if (hasAnswered) {
                 showFeedback(userAnswers[currentQuestionIndex] === currentQ.answer, currentQ.reason);
             }
 
-            // Kemas kini butang navigasi
             document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
             const nextBtn = document.getElementById('next-btn');
+            
             if (currentQuestionIndex === selectedQuestions.length - 1) {
                 nextBtn.innerText = 'Lihat Keputusan';
-                nextBtn.classList.replace('bg-indigo-600', 'bg-green-600');
-                nextBtn.classList.replace('hover:bg-indigo-700', 'hover:bg-green-700');
+                nextBtn.classList.replace('bg-slate-700', 'bg-emerald-600');
+                nextBtn.classList.replace('hover:bg-slate-800', 'hover:bg-emerald-700');
             } else {
                 nextBtn.innerText = 'Seterusnya';
-                nextBtn.classList.replace('bg-green-600', 'bg-indigo-600');
-                nextBtn.classList.replace('hover:bg-green-700', 'hover:bg-indigo-700');
+                nextBtn.classList.replace('bg-emerald-600', 'bg-slate-700');
+                nextBtn.classList.replace('hover:bg-emerald-700', 'hover:bg-slate-800');
             }
         }
 
@@ -222,9 +236,8 @@
             const isCorrect = selectedIndex === currentQ.answer;
             
             userAnswers[currentQuestionIndex] = selectedIndex;
-            if (isCorrect) score += 10; // 10 markah per soalan
             
-            loadQuestion(); // Muat semula visual (kunci butang dan serlah jawapan)
+            loadQuestion(); 
             showFeedback(isCorrect, currentQ.reason);
         }
 
@@ -233,17 +246,17 @@
             const feedbackStatus = document.getElementById('feedback-status');
             const feedbackReason = document.getElementById('feedback-reason');
 
-            feedbackContainer.classList.remove('hidden', 'bg-green-50', 'border-green-400', 'bg-red-50', 'border-red-400');
+            feedbackContainer.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-200', 'text-emerald-800', 'bg-rose-50', 'border-rose-200', 'text-rose-800');
             
             if (isCorrect) {
-                feedbackContainer.classList.add('bg-green-50', 'border-green-400', 'text-green-900');
-                feedbackStatus.innerText = '✅ Jawapan Tepat!';
+                feedbackContainer.classList.add('bg-emerald-50', 'border-emerald-200', 'text-emerald-800');
+                feedbackStatus.innerHTML = '&lrm;Jawapan Tepat';
             } else {
-                feedbackContainer.classList.add('bg-red-50', 'border-red-400', 'text-red-900');
-                feedbackStatus.innerText = '❌ Jawapan Kurang Tepat';
+                feedbackContainer.classList.add('bg-rose-50', 'border-rose-200', 'text-rose-800');
+                feedbackStatus.innerHTML = '&lrm;Jawapan Kurang Tepat';
             }
             
-            feedbackReason.innerText = reason;
+            feedbackReason.innerHTML = formatArabic(reason);
         }
 
         function nextQuestion() {
@@ -266,11 +279,16 @@
             document.getElementById('quiz-container').classList.add('hidden');
             document.getElementById('nav-buttons').classList.add('hidden');
             document.getElementById('result-container').classList.remove('hidden');
-            document.getElementById('final-score').innerText = `${score} / ${selectedQuestions.length * 10}`;
         }
 
-        // Mulakan kuiz bila halaman dimuatkan
         window.onload = initQuiz;
     </script>
+<!-- Bahagian Butang Kembali Ke Kuiz Pertama -->
+<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+    <p style="font-family: sans-serif; font-size: 16px; color: #333;">Mahu ulang kaji tajuk sebelum ini?</p>
+    <a href="index.html" style="display: inline-block; padding: 12px 24px; background-color: #6c757d; color: white; text-decoration: none; font-family: sans-serif; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        ⬅️ Kembali ke Kuiz: Pangkal Lidah Ketika Menyebut
+    </a>
+</div>
 </body>
 </html>
